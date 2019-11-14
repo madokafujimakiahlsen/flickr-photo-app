@@ -1,0 +1,366 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: 0;
+}
+
+.font-72 {
+  font-size: 72px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-14 {
+  font-size: 14px;
+}
+
+.font-10 {
+  font-size: 10px;
+}
+
+body {
+  max-width: 1200px;
+  min-height: 100vh;
+  font-family: "Roboto Slab", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1 {
+  padding: 8px 0;
+}
+
+/* Search feild */
+.search-wrapp {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  border-bottom: 1px solid black;
+  margin-bottom: 40px;
+}
+
+.search-icon {
+  margin: 0 16px;
+}
+
+.form-control:focus,
+.form-control:active {
+  background: transparent;
+}
+
+/* Search text */
+#txt {
+  height: 56px;
+  width: 90%;
+  padding: 0 16px;
+  border: 0;
+  font-family: "Roboto Slab", serif;
+}
+
+/* Drop-down list  */
+.per-page-wrapp {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 72px;
+}
+
+.per-page-wrapp p {
+  margin: 0 16px;
+}
+
+.per-page-wrapp select {
+  border: 0;
+  border-bottom: solid black 1px;
+  background-color: white;
+  border-radius: 0px;
+}
+
+/* Search results number */
+#resultNum {
+  align-self: flex-start;
+}
+
+/* Photos */
+#photoWrapp {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto;
+  gap: 1rem;
+}
+
+.img-wrapp {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  box-shadow: 1px 1px 8px rgb(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.img-wrapp:hover {
+  position: relative;
+  animation: scale-big 0.01s ease-in-out forwards;
+}
+
+@keyframes scale-big {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+.img-wrapp:hover > .img-wrapp_p-wrapp {
+  background-color: rgb(255, 255, 255);
+}
+
+.img-wrapp:hover > .img-wrapp_p-wrapp > .img-wrapp_p-wrapp_p {
+  color: black;
+}
+
+.img-wrapp img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+
+/* Photo title */
+.img-wrapp_p-wrapp {
+  background-color: black;
+  height: 20%;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Photo title text */
+.img-wrapp_p-wrapp_p {
+  margin: 0;
+  color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Page number */
+#pageNum {
+  text-overflow: ellipsis;
+  margin: 40px 0;
+}
+
+#pageNum a,
+#pageNum a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+#pageNum a,
+#pageNum span {
+  margin: 0 12px 0 12px;
+}
+
+/* The Modal (background) */
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0, 0.95);
+  transition: 0.5s;
+  transform: scale(0);
+  opacity: 0;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: transparent;
+  margin: auto;
+  padding: 0;
+  width: 80%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  transform: scale(1.5);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide the slides by default */
+.slides {
+  display: none;
+  height: 600px;
+  overflow: hidden;
+}
+
+.modal-content img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/4000 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 0;
+  top: 0;
+  background-color: transparent;
+}
+
+/* Modal title text */
+.title-container {
+  text-align: center;
+  background-color: transparent;
+  padding: 2px 16px;
+  color: white;
+}
+
+footer {
+  margin-top: auto;
+  padding: 24px;
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding: 0 24px;
+  }
+
+  .img-wrapp {
+    height: 150px;
+  }
+}
+
+@media (max-width: 568px) {
+  body {
+    padding: 0 16px;
+  }
+
+  .font-72 {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  .font-72 {
+    font-size: 32px;
+  }
+
+  .font-20 {
+    font-size: 14px;
+  }
+
+  .font-14 {
+    font-size: 10px;
+  }
+
+  .search-wrapp {
+    width: 90%;
+    margin-bottom: 16px;
+  }
+
+  #txt {
+    padding: 0;
+    height: 48px;
+  }
+
+  .per-page-wrapp {
+    width: 90%;
+    margin-bottom: 40px;
+  }
+
+  #photoWrapp {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .img-wrapp {
+    height: 150px;
+  }
+
+  .modal {
+    min-height: 100vh;
+    padding-top: 80px;
+  }
+
+  #title {
+    font-size: 14px;
+  }
+
+  .prev,
+  .next {
+    font-size: 14px;
+  }
+
+  #pageNum {
+    margin: 16px 0 24px 0;
+  }
+
+  #pageNum a,
+  #pageNum span {
+    margin: 0 8px 0 8px;
+  }
+
+  footer {
+    padding: 16px;
+  }
+}
